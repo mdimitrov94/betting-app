@@ -14,15 +14,6 @@ const config = defineConfig({
 			"@": fileURLToPath(new URL("./src", import.meta.url)),
 		},
 	},
-	environments: {
-		server: {
-			build: {
-				outDir: process.env.NETLIFY
-					? ".netlify/functions-internal/server"
-					: ".output/server",
-			},
-		},
-	},
 	plugins: [
 		devtools(),
 		// this is the plugin that enables path aliases
