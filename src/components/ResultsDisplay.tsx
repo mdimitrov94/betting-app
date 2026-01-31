@@ -3,7 +3,6 @@ import type { Bet, Result } from "../types/betting";
 export const ResultsDisplay = ({
 	result,
 	bets,
-	departureTime,
 	onEditArrival,
 }: {
 	result: Result;
