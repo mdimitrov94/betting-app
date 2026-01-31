@@ -7,9 +7,11 @@ const pool = new Pool({
 	ssl: {
 		rejectUnauthorized: false,
 	},
-	max: 20,
+	// Supabase connection pooler settings
+	max: 1, // Serverless functions should use 1 connection per instance
 	idleTimeoutMillis: 30000,
 	connectionTimeoutMillis: 10000,
+	allowExitOnIdle: true, // Allow pool to close when idle
 });
 
 const adapter = new PrismaPg(pool);
