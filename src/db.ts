@@ -3,15 +3,17 @@ import { Pool } from "pg";
 import { PrismaClient } from "./generated/prisma/client.js";
 
 const pool = new Pool({
-	connectionString: process.env.DATABASE_URL,
-	ssl: {
-		rejectUnauthorized: false,
-	},
-	// Supabase connection pooler settings
-	max: 1, // Serverless functions should use 1 connection per instance
+	connectionString:
+		process.env.DATABASE_URL + "?pgbouncer=true&connection_limit=1",
+	ssl: { rejectUnauthorized: false },
+	max: 1,
 	idleTimeoutMillis: 30000,
 	connectionTimeoutMillis: 10000,
-	allowExitOnIdle: true, // Allow pool to close when idle
+	allowExitOnIdle: true,
+});
+
+pool.on("error", (err) => {
+	console.error("Unexpected PG pool error", err);
 });
 
 const adapter = new PrismaPg(pool);
