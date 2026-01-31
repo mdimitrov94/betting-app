@@ -1,7 +1,12 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && npx prisma generate"
   publish = "dist"
   functions = ".netlify/functions-internal/server"
 
 [functions]
   node_bundler = "esbuild"
+  external_node_modules = ["@prisma/client", "pg"] # Ensure Prisma and Postgres libs are bundled
+
+[dev]
+  command = "npm run dev"
+  port = 8888
