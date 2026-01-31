@@ -13,7 +13,7 @@ const pool = new Pool({
 });
 
 pool.on("error", (err) => {
-  console.error("Unexpected PG pool  error:", err);
+  console.error("Unexpected PG pool error:", err);
 });
 
 const adapter = new PrismaPg(pool);
