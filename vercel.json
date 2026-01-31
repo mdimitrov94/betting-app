@@ -1,9 +1,6 @@
 {
   "functions": {
-    "_ssr/**": {
-      "runtime": "@vercel/node"
-    },
-    "api/**": {
+    "**": {
       "runtime": "@vercel/node"
     }
   }

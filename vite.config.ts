@@ -15,16 +15,16 @@ const config = defineConfig({
 	},
 	plugins: [
 		devtools(),
-		nitro(),
 		// this is the plugin that enables path aliases
 		viteTsConfigPaths({
-			projects: ["./tsconfig.json"],
+      projects: ["./tsconfig.json"],
 		}),
 		tanstackStart({
-			spa: {
-				enabled: true,
+      spa: {
+        enabled: true,
 			},
 		}),
+    nitro(),
 		viteReact(),
 		tailwindcss(),
 	],
