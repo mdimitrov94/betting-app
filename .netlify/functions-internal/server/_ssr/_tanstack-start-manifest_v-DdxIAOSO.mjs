@@ -1,4 +1,0 @@
-const tsrStartManifest = () => ({ "routes": { "__root__": { "filePath": "/Users/martindimitrov/Documents/www/tstack/src/routes/__root.tsx", "children": ["/", "/api/bets", "/api/departure-time", "/api/result", "/api/winner-history"], "preloads": ["/assets/main-B9Xpt8Ss.js"], "assets": [] }, "/": { "filePath": "/Users/martindimitrov/Documents/www/tstack/src/routes/index.tsx", "assets": [], "preloads": ["/assets/index-v20wkcZO.js"] }, "/api/bets": { "filePath": "/Users/martindimitrov/Documents/www/tstack/src/routes/api.bets.ts" }, "/api/departure-time": { "filePath": "/Users/martindimitrov/Documents/www/tstack/src/routes/api.departure-time.ts" }, "/api/result": { "filePath": "/Users/martindimitrov/Documents/www/tstack/src/routes/api.result.ts" }, "/api/winner-history": { "filePath": "/Users/martindimitrov/Documents/www/tstack/src/routes/api.winner-history.ts" } }, "clientEntry": "/assets/main-B9Xpt8Ss.js" });
-export {
-  tsrStartManifest
-};

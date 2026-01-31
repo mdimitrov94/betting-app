@@ -2,9 +2,9 @@ import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 import { PrismaClient } from "./generated/prisma/client.js";
 
+// Create a single connection pool per function instance
 const pool = new Pool({
-	connectionString:
-		process.env.DATABASE_URL + "?pgbouncer=true&connection_limit=1",
+	connectionString: process.env.DATABASE_URL,
 	ssl: { rejectUnauthorized: false },
 	max: 1,
 	idleTimeoutMillis: 30000,
@@ -13,17 +13,18 @@ const pool = new Pool({
 });
 
 pool.on("error", (err) => {
-	console.error("Unexpected PG pool error", err);
+	console.error("Unexpected PG pool error:", err);
 });
 
 const adapter = new PrismaPg(pool);
 
-declare global {
-	var __prisma: PrismaClient | undefined;
-}
-
-export const prisma = globalThis.__prisma || new PrismaClient({ adapter });
-
+// Use a global variable to cache Prisma during local dev
+let prisma;
 if (process.env.NODE_ENV !== "production") {
-	globalThis.__prisma = prisma;
+	globalThis.__prisma ??= new PrismaClient({ adapter });
+	prisma = globalThis.__prisma;
+} else {
+	prisma = new PrismaClient({ adapter });
 }
+
+export { prisma };
