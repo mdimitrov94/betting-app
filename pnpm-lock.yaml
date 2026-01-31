@@ -141,6 +141,9 @@ importers:
       jsdom:
         specifier: ^27.0.0
         version: 27.4.0
+      srvx:
+        specifier: ^0.10.1
+        version: 0.10.1
       tsx:
         specifier: ^4.20.6
         version: 4.21.0
