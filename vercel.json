@@ -1,0 +1,11 @@
+{
+  "framework": "nitro",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "env": {
+    "DATABASE_URL": {
+      "type": "secret",
+      "description": "PostgreSQL connection string"
+    }
+  }
+}

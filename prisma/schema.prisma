@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Todo {
+  id        Int      @id @default(autoincrement())
+  title     String
+  createdAt DateTime @default(now())
+}
+
+model Bet {
+  id        String   @id @default(cuid())
+  userId    String
+  name      String
+  time      String   @db.VarChar(5)
+  date      DateTime @db.Date
+  createdAt DateTime @default(now())
+
+  @@unique([userId, date])
+  @@index([date])
+}
+
+model DailyResult {
+  id         String   @id @default(cuid())
+  date       DateTime @unique @db.Date
+  actualTime String   @db.VarChar(5)
+  updatedAt  DateTime @updatedAt
+
+  @@index([date])
+}
+
+model DepartureTime {
+  id            String   @id @default(cuid())
+  date          DateTime @unique @db.Date
+  departureTime String   @db.VarChar(5)
+  updatedAt     DateTime @updatedAt
+
+  @@index([date])
+}
+
+model WinnerHistory {
+  id            String   @id @default(cuid())
+  date          DateTime @db.Date
+  departureTime String   @db.VarChar(5)
+  winnerUserId  String
+  winnerName    String
+  winnerBetTime String   @db.VarChar(5)
+  createdAt     DateTime @default(now())
+
+  @@unique([date])
+  @@index([date])
+}
