@@ -6,9 +6,5 @@ export default defineNitroConfig({
   prerender: {
     crawlLinks: false,
     routes: []
-  },
-  output: {
-    dir: '.output',
-    serverDir: 'server'
   }
 })
