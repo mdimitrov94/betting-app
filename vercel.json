@@ -1,3 +1,10 @@
 {
-  "buildCommand": "npm run build"
+  "functions": {
+    "api/**": {
+      "runtime": "nodejs18.x"
+    },
+    "_ssr/**": {
+      "runtime": "nodejs18.x"
+    }
+  }
 }
