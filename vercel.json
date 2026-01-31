@@ -1,10 +1,10 @@
 {
   "functions": {
-    "api/**": {
-      "runtime": "nodejs18.x"
-    },
     "_ssr/**": {
-      "runtime": "nodejs18.x"
+      "runtime": "@vercel/node"
+    },
+    "api/**": {
+      "runtime": "@vercel/node"
     }
   }
 }
