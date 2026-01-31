@@ -15,12 +15,7 @@ const config = defineConfig({
 	},
 	plugins: [
 		devtools(),
-		nitro({
-			prerender: {
-				autoSubfolderIndex: false,
-				failOnError: false,
-			},
-		}),
+		nitro(),
 		// this is the plugin that enables path aliases
 		viteTsConfigPaths({
 			projects: ["./tsconfig.json"],
