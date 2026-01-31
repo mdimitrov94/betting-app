@@ -1,4 +1,4 @@
-import netlify from '@netlify/vite-plugin-tanstack-start'
+import netlify from "@netlify/vite-plugin-tanstack-start";
 import tailwindcss from "@tailwindcss/vite";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -14,19 +14,31 @@ const config = defineConfig({
 			"@": fileURLToPath(new URL("./src", import.meta.url)),
 		},
 	},
+	environments: {
+		server: {
+			build: {
+				outDir: process.env.NETLIFY
+					? ".netlify/functions-internal/server"
+					: ".output/server",
+			},
+		},
+	},
 	plugins: [
 		devtools(),
 		// this is the plugin that enables path aliases
 		viteTsConfigPaths({
-      projects: ["./tsconfig.json"],
+			projects: ["./tsconfig.json"],
 		}),
 		tanstackStart({
-      spa: {
-        enabled: true,
+			spa: {
+				enabled: false,
+			},
+			prerender: {
+				enabled: false,
 			},
 		}),
-    netlify(),
-    nitro(),
+		netlify(),
+		nitro(),
 		viteReact(),
 		tailwindcss(),
 	],
