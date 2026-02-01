@@ -32,6 +32,7 @@ function App() {
 	const [isEditArrivalModalOpen, setIsEditArrivalModalOpen] = useState(false);
 	const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
 	const [userId] = useState(getUserId());
+	const [isAdmin] = useState(localStorage.get("admin"));
 	const [editingBetId, setEditingBetId] = useState<string | null>(null);
 
 	// Use custom hooks for data fetching
@@ -95,7 +96,7 @@ function App() {
 	return (
 		<div className="bg-gray-800 min-h-screen pb-8">
 			{(isMutating || isDataLoading) && <Loader />}
-			<SiteDownToggle />
+			{isAdmin && <SiteDownToggle />}
 			<div className="flex justify-center text-white p-8 text-5xl font-bold">
 				<span className="mr-3">🎰</span>
 				<span>Betting Departure</span>
