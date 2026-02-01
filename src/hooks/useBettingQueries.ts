@@ -207,7 +207,7 @@ export function useSaveDepartureTime(onSuccess?: () => void) {
 					const closestDiff = Math.abs(departureMinutes - closestMinutes);
 
 					return betDiff < closestDiff ? bet : closest;
-				}, bets[0] || {});
+				}, bets[0]);
 
 				// Save winner to history
 				const today = new Date().toISOString().split("T")[0];

@@ -22,6 +22,10 @@ export function WinnerDisplay({
 		parseInt(result.actualTime.split(":")[0]) * 60 +
 		parseInt(result.actualTime.split(":")[1]);
 
+	if (bets.length === 0) {
+		return null;
+	}
+
 	const winner = bets.reduce((closest, bet) => {
 		const betMinutes =
 			parseInt(bet.time.split(":")[0]) * 60 + parseInt(bet.time.split(":")[1]);
@@ -33,7 +37,7 @@ export function WinnerDisplay({
 		const closestDiff = Math.abs(departureMinutes - closestMinutes);
 
 		return betDiff < closestDiff ? bet : closest;
-	});
+	}, bets[0]);
 
 	const winnerDiff = Math.abs(
 		departureMinutes -
