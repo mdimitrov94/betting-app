@@ -55,7 +55,8 @@ export const ModelName = {
   Bet: 'Bet',
   DailyResult: 'DailyResult',
   DepartureTime: 'DepartureTime',
-  WinnerHistory: 'WinnerHistory'
+  WinnerHistory: 'WinnerHistory',
+  SiteSettings: 'SiteSettings'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -126,6 +127,15 @@ export const WinnerHistoryScalarFieldEnum = {
 } as const
 
 export type WinnerHistoryScalarFieldEnum = (typeof WinnerHistoryScalarFieldEnum)[keyof typeof WinnerHistoryScalarFieldEnum]
+
+
+export const SiteSettingsScalarFieldEnum = {
+  id: 'id',
+  siteDown: 'siteDown',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SiteSettingsScalarFieldEnum = (typeof SiteSettingsScalarFieldEnum)[keyof typeof SiteSettingsScalarFieldEnum]
 
 
 export const SortOrder = {

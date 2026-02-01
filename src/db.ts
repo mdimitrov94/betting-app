@@ -19,7 +19,7 @@ pool.on("error", (err) => {
 const adapter = new PrismaPg(pool);
 
 // Cache Prisma client in development for hot reloads
-let prisma;
+let prisma: PrismaClient;
 if (process.env.NODE_ENV !== "production") {
   globalThis.__prisma ??= new PrismaClient({ adapter });
   prisma = globalThis.__prisma;

@@ -53,6 +53,17 @@ export function useWinnerHistory() {
 	});
 }
 
+export function useSiteSettings() {
+	return useQuery({
+		queryKey: ["site-settings"],
+		queryFn: async () => {
+			const response = await fetch("/api/site-settings");
+			if (!response.ok) throw new Error("Failed to fetch site settings");
+			return response.json();
+		},
+	});
+}
+
 export function useSubmitBet(userId: string, onSuccess?: () => void) {
 	const queryClient = useQueryClient();
 
@@ -196,7 +207,7 @@ export function useSaveDepartureTime(onSuccess?: () => void) {
 					const closestDiff = Math.abs(departureMinutes - closestMinutes);
 
 					return betDiff < closestDiff ? bet : closest;
-				});
+				}, bets[0] || {});
 
 				// Save winner to history
 				const today = new Date().toISOString().split("T")[0];

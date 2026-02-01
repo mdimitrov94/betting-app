@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import down from "public/down.png";
 import { useState } from "react";
+import { SiteDownToggle } from "@/components/SiteDownToggle";
 import { WinnerDisplay } from "@/components/WinnerDisplay";
 import { ArrivalTime } from "../components/ArrivalTime";
 import { BetsList } from "../components/BetsList";
@@ -16,12 +18,12 @@ import {
 	useResult,
 	useSaveDepartureTime,
 	useSaveResult,
+	useSiteSettings,
 	useSubmitBet,
 	useWinnerHistory,
 } from "../hooks/useBettingQueries";
 import type { Bet } from "../types/betting";
 import { canEditBets, getUserId } from "../utils/betting";
-
 export const Route = createFileRoute("/")({ component: App });
 
 function App() {
@@ -39,7 +41,12 @@ function App() {
 		useDepartureTime();
 	const { data: winnerHistory = [], isLoading: isWinnerHistoryLoading } =
 		useWinnerHistory();
+	const { data: siteSettings, isLoading: isSiteSettingsLoading } =
+		useSiteSettings();
 
+	// Extract siteDown value
+	const siteDown = siteSettings?.siteDown ?? false;
+	console.log(siteDown);
 	// Mutations
 	const submitBetMutation = useSubmitBet(userId, () => {
 		setIsModalOpen(false);
@@ -76,10 +83,22 @@ function App() {
 		}
 	};
 
+	if (!siteDown) {
+		return (
+			<>
+				<div
+					className="fixed z-50 inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+					style={{ backgroundImage: `url(${down})` }}
+				/>
+				<SiteDownToggle />
+			</>
+		);
+	}
+
 	return (
 		<div className="bg-gray-800 min-h-screen pb-8">
 			{(isMutating || isDataLoading) && <Loader />}
-
+			<SiteDownToggle />
 			<div className="flex justify-center text-white p-8 text-5xl font-bold">
 				<span className="mr-3">🎰</span>
 				<span>Betting Departure</span>

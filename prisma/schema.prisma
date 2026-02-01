@@ -55,3 +55,9 @@ model WinnerHistory {
   @@unique([date])
   @@index([date])
 }
+
+model SiteSettings {
+  id        Int      @id @default(1)
+  siteDown  Boolean  @default(false)
+  updatedAt DateTime @updatedAt
+}

@@ -42,3 +42,8 @@ export type DepartureTime = Prisma.DepartureTimeModel
  * 
  */
 export type WinnerHistory = Prisma.WinnerHistoryModel
+/**
+ * Model SiteSettings
+ * 
+ */
+export type SiteSettings = Prisma.SiteSettingsModel

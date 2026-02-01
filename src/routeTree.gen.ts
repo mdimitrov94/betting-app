@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiWinnerHistoryRouteImport } from './routes/api.winner-history'
+import { Route as ApiSiteSettingsRouteImport } from './routes/api.site-settings'
 import { Route as ApiResultRouteImport } from './routes/api.result'
 import { Route as ApiDepartureTimeRouteImport } from './routes/api.departure-time'
 import { Route as ApiBetsRouteImport } from './routes/api.bets'
@@ -23,6 +24,11 @@ const IndexRoute = IndexRouteImport.update({
 const ApiWinnerHistoryRoute = ApiWinnerHistoryRouteImport.update({
   id: '/api/winner-history',
   path: '/api/winner-history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiSiteSettingsRoute = ApiSiteSettingsRouteImport.update({
+  id: '/api/site-settings',
+  path: '/api/site-settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiResultRoute = ApiResultRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/api/bets': typeof ApiBetsRoute
   '/api/departure-time': typeof ApiDepartureTimeRoute
   '/api/result': typeof ApiResultRoute
+  '/api/site-settings': typeof ApiSiteSettingsRoute
   '/api/winner-history': typeof ApiWinnerHistoryRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/api/bets': typeof ApiBetsRoute
   '/api/departure-time': typeof ApiDepartureTimeRoute
   '/api/result': typeof ApiResultRoute
+  '/api/site-settings': typeof ApiSiteSettingsRoute
   '/api/winner-history': typeof ApiWinnerHistoryRoute
 }
 export interface FileRoutesById {
@@ -61,6 +69,7 @@ export interface FileRoutesById {
   '/api/bets': typeof ApiBetsRoute
   '/api/departure-time': typeof ApiDepartureTimeRoute
   '/api/result': typeof ApiResultRoute
+  '/api/site-settings': typeof ApiSiteSettingsRoute
   '/api/winner-history': typeof ApiWinnerHistoryRoute
 }
 export interface FileRouteTypes {
@@ -70,6 +79,7 @@ export interface FileRouteTypes {
     | '/api/bets'
     | '/api/departure-time'
     | '/api/result'
+    | '/api/site-settings'
     | '/api/winner-history'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -77,6 +87,7 @@ export interface FileRouteTypes {
     | '/api/bets'
     | '/api/departure-time'
     | '/api/result'
+    | '/api/site-settings'
     | '/api/winner-history'
   id:
     | '__root__'
@@ -84,6 +95,7 @@ export interface FileRouteTypes {
     | '/api/bets'
     | '/api/departure-time'
     | '/api/result'
+    | '/api/site-settings'
     | '/api/winner-history'
   fileRoutesById: FileRoutesById
 }
@@ -92,6 +104,7 @@ export interface RootRouteChildren {
   ApiBetsRoute: typeof ApiBetsRoute
   ApiDepartureTimeRoute: typeof ApiDepartureTimeRoute
   ApiResultRoute: typeof ApiResultRoute
+  ApiSiteSettingsRoute: typeof ApiSiteSettingsRoute
   ApiWinnerHistoryRoute: typeof ApiWinnerHistoryRoute
 }
 
@@ -109,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/api/winner-history'
       fullPath: '/api/winner-history'
       preLoaderRoute: typeof ApiWinnerHistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/site-settings': {
+      id: '/api/site-settings'
+      path: '/api/site-settings'
+      fullPath: '/api/site-settings'
+      preLoaderRoute: typeof ApiSiteSettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/result': {
@@ -140,6 +160,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiBetsRoute: ApiBetsRoute,
   ApiDepartureTimeRoute: ApiDepartureTimeRoute,
   ApiResultRoute: ApiResultRoute,
+  ApiSiteSettingsRoute: ApiSiteSettingsRoute,
   ApiWinnerHistoryRoute: ApiWinnerHistoryRoute,
 }
 export const routeTree = rootRouteImport
