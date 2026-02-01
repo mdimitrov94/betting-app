@@ -32,7 +32,7 @@ function App() {
 	const [isEditArrivalModalOpen, setIsEditArrivalModalOpen] = useState(false);
 	const [isHistoryModalOpen, setIsHistoryModalOpen] = useState(false);
 	const [userId] = useState(getUserId());
-	const [isAdmin] = useState(localStorage.get("admin"));
+	const [isAdmin] = useState(localStorage.getItem("admin"));
 	const [editingBetId, setEditingBetId] = useState<string | null>(null);
 
 	// Use custom hooks for data fetching
