@@ -98,6 +98,12 @@ function App() {
 	}
 	return (
 		<div className="bg-gray-800 min-h-screen pb-8">
+			<button
+				type="button"
+				onClick={() => localStorage.setItem("admin", "true")}
+			>
+				click
+			</button>
 			{(isMutating || isDataLoading) && <Loader />}
 			{isAdmin && <SiteDownToggle />}
 			<div className="flex justify-center text-white p-8 text-5xl font-bold">
