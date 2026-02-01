@@ -80,7 +80,7 @@ export function WinnerDisplay({
 					</div>
 				</div>
 
-				<div className="mt-6 text-2xl text-white">
+				<div className="mt-6 font-bold text-2xl text-gray-900">
 					✨ Congratulations! You won! 🎊
 				</div>
 			</div>

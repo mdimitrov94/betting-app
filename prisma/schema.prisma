@@ -47,6 +47,7 @@ model WinnerHistory {
   id            String   @id @default(cuid())
   date          DateTime @db.Date
   departureTime String   @db.VarChar(5)
+  actualTime    String?  @db.VarChar(5)
   winnerUserId  String
   winnerName    String
   winnerBetTime String   @db.VarChar(5)

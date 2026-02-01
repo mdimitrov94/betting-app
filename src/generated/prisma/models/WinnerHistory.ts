@@ -28,6 +28,7 @@ export type WinnerHistoryMinAggregateOutputType = {
   id: string | null
   date: Date | null
   departureTime: string | null
+  actualTime: string | null
   winnerUserId: string | null
   winnerName: string | null
   winnerBetTime: string | null
@@ -38,6 +39,7 @@ export type WinnerHistoryMaxAggregateOutputType = {
   id: string | null
   date: Date | null
   departureTime: string | null
+  actualTime: string | null
   winnerUserId: string | null
   winnerName: string | null
   winnerBetTime: string | null
@@ -48,6 +50,7 @@ export type WinnerHistoryCountAggregateOutputType = {
   id: number
   date: number
   departureTime: number
+  actualTime: number
   winnerUserId: number
   winnerName: number
   winnerBetTime: number
@@ -60,6 +63,7 @@ export type WinnerHistoryMinAggregateInputType = {
   id?: true
   date?: true
   departureTime?: true
+  actualTime?: true
   winnerUserId?: true
   winnerName?: true
   winnerBetTime?: true
@@ -70,6 +74,7 @@ export type WinnerHistoryMaxAggregateInputType = {
   id?: true
   date?: true
   departureTime?: true
+  actualTime?: true
   winnerUserId?: true
   winnerName?: true
   winnerBetTime?: true
@@ -80,6 +85,7 @@ export type WinnerHistoryCountAggregateInputType = {
   id?: true
   date?: true
   departureTime?: true
+  actualTime?: true
   winnerUserId?: true
   winnerName?: true
   winnerBetTime?: true
@@ -163,6 +169,7 @@ export type WinnerHistoryGroupByOutputType = {
   id: string
   date: Date
   departureTime: string
+  actualTime: string | null
   winnerUserId: string
   winnerName: string
   winnerBetTime: string
@@ -194,6 +201,7 @@ export type WinnerHistoryWhereInput = {
   id?: Prisma.StringFilter<"WinnerHistory"> | string
   date?: Prisma.DateTimeFilter<"WinnerHistory"> | Date | string
   departureTime?: Prisma.StringFilter<"WinnerHistory"> | string
+  actualTime?: Prisma.StringNullableFilter<"WinnerHistory"> | string | null
   winnerUserId?: Prisma.StringFilter<"WinnerHistory"> | string
   winnerName?: Prisma.StringFilter<"WinnerHistory"> | string
   winnerBetTime?: Prisma.StringFilter<"WinnerHistory"> | string
@@ -204,6 +212,7 @@ export type WinnerHistoryOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   date?: Prisma.SortOrder
   departureTime?: Prisma.SortOrder
+  actualTime?: Prisma.SortOrderInput | Prisma.SortOrder
   winnerUserId?: Prisma.SortOrder
   winnerName?: Prisma.SortOrder
   winnerBetTime?: Prisma.SortOrder
@@ -217,6 +226,7 @@ export type WinnerHistoryWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.WinnerHistoryWhereInput[]
   NOT?: Prisma.WinnerHistoryWhereInput | Prisma.WinnerHistoryWhereInput[]
   departureTime?: Prisma.StringFilter<"WinnerHistory"> | string
+  actualTime?: Prisma.StringNullableFilter<"WinnerHistory"> | string | null
   winnerUserId?: Prisma.StringFilter<"WinnerHistory"> | string
   winnerName?: Prisma.StringFilter<"WinnerHistory"> | string
   winnerBetTime?: Prisma.StringFilter<"WinnerHistory"> | string
@@ -227,6 +237,7 @@ export type WinnerHistoryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   date?: Prisma.SortOrder
   departureTime?: Prisma.SortOrder
+  actualTime?: Prisma.SortOrderInput | Prisma.SortOrder
   winnerUserId?: Prisma.SortOrder
   winnerName?: Prisma.SortOrder
   winnerBetTime?: Prisma.SortOrder
@@ -243,6 +254,7 @@ export type WinnerHistoryScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"WinnerHistory"> | string
   date?: Prisma.DateTimeWithAggregatesFilter<"WinnerHistory"> | Date | string
   departureTime?: Prisma.StringWithAggregatesFilter<"WinnerHistory"> | string
+  actualTime?: Prisma.StringNullableWithAggregatesFilter<"WinnerHistory"> | string | null
   winnerUserId?: Prisma.StringWithAggregatesFilter<"WinnerHistory"> | string
   winnerName?: Prisma.StringWithAggregatesFilter<"WinnerHistory"> | string
   winnerBetTime?: Prisma.StringWithAggregatesFilter<"WinnerHistory"> | string
@@ -253,6 +265,7 @@ export type WinnerHistoryCreateInput = {
   id?: string
   date: Date | string
   departureTime: string
+  actualTime?: string | null
   winnerUserId: string
   winnerName: string
   winnerBetTime: string
@@ -263,6 +276,7 @@ export type WinnerHistoryUncheckedCreateInput = {
   id?: string
   date: Date | string
   departureTime: string
+  actualTime?: string | null
   winnerUserId: string
   winnerName: string
   winnerBetTime: string
@@ -273,6 +287,7 @@ export type WinnerHistoryUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departureTime?: Prisma.StringFieldUpdateOperationsInput | string
+  actualTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   winnerUserId?: Prisma.StringFieldUpdateOperationsInput | string
   winnerName?: Prisma.StringFieldUpdateOperationsInput | string
   winnerBetTime?: Prisma.StringFieldUpdateOperationsInput | string
@@ -283,6 +298,7 @@ export type WinnerHistoryUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departureTime?: Prisma.StringFieldUpdateOperationsInput | string
+  actualTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   winnerUserId?: Prisma.StringFieldUpdateOperationsInput | string
   winnerName?: Prisma.StringFieldUpdateOperationsInput | string
   winnerBetTime?: Prisma.StringFieldUpdateOperationsInput | string
@@ -293,6 +309,7 @@ export type WinnerHistoryCreateManyInput = {
   id?: string
   date: Date | string
   departureTime: string
+  actualTime?: string | null
   winnerUserId: string
   winnerName: string
   winnerBetTime: string
@@ -303,6 +320,7 @@ export type WinnerHistoryUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departureTime?: Prisma.StringFieldUpdateOperationsInput | string
+  actualTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   winnerUserId?: Prisma.StringFieldUpdateOperationsInput | string
   winnerName?: Prisma.StringFieldUpdateOperationsInput | string
   winnerBetTime?: Prisma.StringFieldUpdateOperationsInput | string
@@ -313,6 +331,7 @@ export type WinnerHistoryUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   departureTime?: Prisma.StringFieldUpdateOperationsInput | string
+  actualTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   winnerUserId?: Prisma.StringFieldUpdateOperationsInput | string
   winnerName?: Prisma.StringFieldUpdateOperationsInput | string
   winnerBetTime?: Prisma.StringFieldUpdateOperationsInput | string
@@ -323,6 +342,7 @@ export type WinnerHistoryCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   date?: Prisma.SortOrder
   departureTime?: Prisma.SortOrder
+  actualTime?: Prisma.SortOrder
   winnerUserId?: Prisma.SortOrder
   winnerName?: Prisma.SortOrder
   winnerBetTime?: Prisma.SortOrder
@@ -333,6 +353,7 @@ export type WinnerHistoryMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   date?: Prisma.SortOrder
   departureTime?: Prisma.SortOrder
+  actualTime?: Prisma.SortOrder
   winnerUserId?: Prisma.SortOrder
   winnerName?: Prisma.SortOrder
   winnerBetTime?: Prisma.SortOrder
@@ -343,10 +364,15 @@ export type WinnerHistoryMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   date?: Prisma.SortOrder
   departureTime?: Prisma.SortOrder
+  actualTime?: Prisma.SortOrder
   winnerUserId?: Prisma.SortOrder
   winnerName?: Prisma.SortOrder
   winnerBetTime?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
 }
 
 
@@ -355,6 +381,7 @@ export type WinnerHistorySelect<ExtArgs extends runtime.Types.Extensions.Interna
   id?: boolean
   date?: boolean
   departureTime?: boolean
+  actualTime?: boolean
   winnerUserId?: boolean
   winnerName?: boolean
   winnerBetTime?: boolean
@@ -365,6 +392,7 @@ export type WinnerHistorySelectCreateManyAndReturn<ExtArgs extends runtime.Types
   id?: boolean
   date?: boolean
   departureTime?: boolean
+  actualTime?: boolean
   winnerUserId?: boolean
   winnerName?: boolean
   winnerBetTime?: boolean
@@ -375,6 +403,7 @@ export type WinnerHistorySelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   id?: boolean
   date?: boolean
   departureTime?: boolean
+  actualTime?: boolean
   winnerUserId?: boolean
   winnerName?: boolean
   winnerBetTime?: boolean
@@ -385,13 +414,14 @@ export type WinnerHistorySelectScalar = {
   id?: boolean
   date?: boolean
   departureTime?: boolean
+  actualTime?: boolean
   winnerUserId?: boolean
   winnerName?: boolean
   winnerBetTime?: boolean
   createdAt?: boolean
 }
 
-export type WinnerHistoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "date" | "departureTime" | "winnerUserId" | "winnerName" | "winnerBetTime" | "createdAt", ExtArgs["result"]["winnerHistory"]>
+export type WinnerHistoryOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "date" | "departureTime" | "actualTime" | "winnerUserId" | "winnerName" | "winnerBetTime" | "createdAt", ExtArgs["result"]["winnerHistory"]>
 
 export type $WinnerHistoryPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "WinnerHistory"
@@ -400,6 +430,7 @@ export type $WinnerHistoryPayload<ExtArgs extends runtime.Types.Extensions.Inter
     id: string
     date: Date
     departureTime: string
+    actualTime: string | null
     winnerUserId: string
     winnerName: string
     winnerBetTime: string
@@ -830,6 +861,7 @@ export interface WinnerHistoryFieldRefs {
   readonly id: Prisma.FieldRef<"WinnerHistory", 'String'>
   readonly date: Prisma.FieldRef<"WinnerHistory", 'DateTime'>
   readonly departureTime: Prisma.FieldRef<"WinnerHistory", 'String'>
+  readonly actualTime: Prisma.FieldRef<"WinnerHistory", 'String'>
   readonly winnerUserId: Prisma.FieldRef<"WinnerHistory", 'String'>
   readonly winnerName: Prisma.FieldRef<"WinnerHistory", 'String'>
   readonly winnerBetTime: Prisma.FieldRef<"WinnerHistory", 'String'>

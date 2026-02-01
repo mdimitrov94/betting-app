@@ -127,12 +127,14 @@ export function useSaveWinnerHistory(onSuccess?: () => void) {
 		mutationFn: async ({
 			date,
 			departureTime,
+			actualTime,
 			winnerUserId,
 			winnerName,
 			winnerBetTime,
 		}: {
 			date: string;
 			departureTime: string;
+			actualTime: string;
 			winnerUserId: string;
 			winnerName: string;
 			winnerBetTime: string;
@@ -145,6 +147,7 @@ export function useSaveWinnerHistory(onSuccess?: () => void) {
 				body: JSON.stringify({
 					date,
 					departureTime,
+					actualTime,
 					winnerUserId,
 					winnerName,
 					winnerBetTime,
@@ -170,9 +173,11 @@ export function useSaveDepartureTime(onSuccess?: () => void) {
 	return useMutation({
 		mutationFn: async ({
 			departureTime,
+			actualTime,
 			bets,
 		}: {
 			departureTime: string;
+			actualTime: string;
 			bets: Bet[];
 		}) => {
 			const response = await fetch("/api/departure-time", {
@@ -214,6 +219,7 @@ export function useSaveDepartureTime(onSuccess?: () => void) {
 				await saveWinnerMutation.mutateAsync({
 					date: today,
 					departureTime,
+					actualTime,
 					winnerUserId: winner.userId,
 					winnerName: winner.name,
 					winnerBetTime: winner.time,

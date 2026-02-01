@@ -25,6 +25,7 @@ export const Route = createFileRoute("/api/winner-history")({
 					const {
 						date,
 						departureTime,
+						actualTime,
 						winnerUserId,
 						winnerName,
 						winnerBetTime,
@@ -36,6 +37,7 @@ export const Route = createFileRoute("/api/winner-history")({
 						},
 						update: {
 							departureTime,
+							actualTime,
 							winnerUserId,
 							winnerName,
 							winnerBetTime,
@@ -43,6 +45,7 @@ export const Route = createFileRoute("/api/winner-history")({
 						create: {
 							date: new Date(date),
 							departureTime,
+							actualTime,
 							winnerUserId,
 							winnerName,
 							winnerBetTime,

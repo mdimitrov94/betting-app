@@ -45,11 +45,11 @@ export const UserInputs = ({
 	};
 
 	return (
-		<div className="flex justify-center mt-8">
+		<div className="flex justify-center p-6">
 			<form onSubmit={submit} className="w-full max-w-md">
-				<div className="bg-gray-700 rounded-lg p-6 shadow-lg space-y-4">
-					<h2 className="text-white text-xl font-semibold mb-4">
-						User Information
+				<div className="space-y-4">
+					<h2 className="text-white text-2xl font-semibold">
+						{existingBet ? "Edit Your Bet" : "Place Your Bet"}
 					</h2>
 
 					<div>

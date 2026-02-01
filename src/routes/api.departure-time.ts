@@ -24,10 +24,6 @@ export const Route = createFileRoute("/api/departure-time")({
 				}
 			},
 			POST: async ({ request }) => {
-        console.log('=============')
-        console.log('=============')
-        console.log('=============')
-        console.log('=============')
 				try {
 					const body = await request.json();
 					const { departureTime } = body;

@@ -24,9 +24,10 @@ export const WinnerHistoryModal = ({
 							<thead className="text-xs uppercase bg-gray-700 text-gray-200 sticky top-0">
 								<tr>
 									<th className="px-4 py-3">Date</th>
-									<th className="px-4 py-3">Departure Time</th>
 									<th className="px-4 py-3">Winner Name</th>
 									<th className="px-4 py-3">Winner Bet Time</th>
+									<th className="px-4 py-3">Departure Time</th>
+									<th className="px-4 py-3">Arrival Time</th>
 								</tr>
 							</thead>
 							<tbody className="divide-y divide-gray-700">
@@ -40,8 +41,7 @@ export const WinnerHistoryModal = ({
 										<td className="px-4 py-3">
 											{new Date(entry.date).toLocaleDateString()}
 										</td>
-										<td className="px-4 py-3">{entry.departureTime}</td>
-										<td className="px-4 py-3 font-semibold">
+										<td className="px-4 py-3 font-semibold text-yellow-400">
 											{entry.winnerName}
 										</td>
 										<td className="px-4 py-3">
@@ -49,6 +49,8 @@ export const WinnerHistoryModal = ({
 												{entry.winnerBetTime}
 											</span>
 										</td>
+										<td className="px-4 py-3">{entry.departureTime}</td>
+										<td className="px-4 py-3">{entry.actualTime}</td>
 									</tr>
 								))}
 							</tbody>
