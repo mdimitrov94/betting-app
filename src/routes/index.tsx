@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import downMobile from "public/down-mobile.png";
 import down from "public/down2.png";
 import { useState } from "react";
 import { SiteDownToggle } from "@/components/SiteDownToggle";
@@ -84,7 +85,11 @@ function App() {
 		return (
 			<>
 				<div
-					className="fixed inset-0 w-full h-full bg-contain sm:bg-cover bg-center bg-no-repeat"
+					className="fixed inset-0 w-full h-full bg-contain bg-center bg-no-repeat sm:hidden"
+					style={{ backgroundImage: `url(${downMobile})` }}
+				/>
+				<div
+					className="hidden sm:block fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
 					style={{ backgroundImage: `url(${down})` }}
 				/>
 				{isAdmin && <SiteDownToggle />}
