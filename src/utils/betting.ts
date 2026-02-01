@@ -19,7 +19,7 @@ export const getUserId = (): string => {
 export const canEditBets = (): boolean => {
 	const now = new Date();
 	const currentHour = now.getHours();
-	return currentHour < 13;
+	return currentHour < 16;
 };
 
 // Parse time string to minutes

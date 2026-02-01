@@ -42,8 +42,7 @@ function App() {
 		useDepartureTime();
 	const { data: winnerHistory = [], isLoading: isWinnerHistoryLoading } =
 		useWinnerHistory();
-	const { data: siteSettings, isLoading: isSiteSettingsLoading } =
-		useSiteSettings();
+	const { data: siteSettings } = useSiteSettings();
 	// Extract siteDown value
 	const siteRunning = siteSettings?.siteDown ?? false;
 	// Mutations
@@ -63,7 +62,6 @@ function App() {
 		submitBetMutation.isPending ||
 		saveResultMutation.isPending ||
 		saveDepartureTimeMutation.isPending;
-
 	// Check if any data is loading
 	const isDataLoading =
 		isBetsLoading ||
@@ -89,7 +87,7 @@ function App() {
 					className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
 					style={{ backgroundImage: `url(${down})` }}
 				/>
-				<SiteDownToggle />
+				{isAdmin && <SiteDownToggle />}
 			</>
 		);
 	}

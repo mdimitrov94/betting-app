@@ -28,7 +28,7 @@ const config = defineConfig({
 				enabled: false,
 			},
 		}),
-		netlify(),
+		// netlify(),
 		nitro(),
 		viteReact(),
 		tailwindcss(),
