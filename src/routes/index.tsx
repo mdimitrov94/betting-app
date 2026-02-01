@@ -43,10 +43,8 @@ function App() {
 		useWinnerHistory();
 	const { data: siteSettings, isLoading: isSiteSettingsLoading } =
 		useSiteSettings();
-
 	// Extract siteDown value
-	const siteDown = siteSettings?.siteDown ?? false;
-	console.log(siteDown);
+	const siteRunning = siteSettings?.siteDown ?? false;
 	// Mutations
 	const submitBetMutation = useSubmitBet(userId, () => {
 		setIsModalOpen(false);
@@ -83,18 +81,17 @@ function App() {
 		}
 	};
 
-	if (!siteDown) {
+	if (!siteRunning) {
 		return (
 			<>
 				<div
-					className="fixed z-50 inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+					className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
 					style={{ backgroundImage: `url(${down})` }}
 				/>
 				<SiteDownToggle />
 			</>
 		);
 	}
-
 	return (
 		<div className="bg-gray-800 min-h-screen pb-8">
 			{(isMutating || isDataLoading) && <Loader />}

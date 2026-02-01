@@ -22,7 +22,7 @@ const config = defineConfig({
 		}),
 		tanstackStart({
 			spa: {
-				enabled: false,
+				enabled: true,
 			},
 			prerender: {
 				enabled: false,
